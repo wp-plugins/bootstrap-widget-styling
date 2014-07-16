@@ -1,3 +1,4 @@
+=== Bootstrap Widget Styling ===
 Contributors: ryankienstra
 Donate link: http://jdrf.org/get-involved/ways-to-donate/
 Tags: Bootstrap, widgets, mobile, responsive, default widgets

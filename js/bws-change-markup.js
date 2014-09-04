@@ -10,9 +10,10 @@
     function formatWidgetForBootstrap( widget ) {
       var allAnchors = [] ; 	
       widget.find( 'ul li' ).map( function() { // turn each li tag into an anchor, store in allAnchors
-	var span = $( this ).find( 'span' ).clone().addClass( 'label label-primary pull-right' ) ; 
-	var anchor = $( this ).find( 'a' ).clone() ;
-	anchor.addClass( 'list-group-item' ).append( '&nbsp;' ).append( span ) ; ;
+	var span = $( this ).find( 'span' ).clone().addClass( 'label label-primary pull-right' ) ;
+	var clearfixDiv = $( '<div>' ).attr( 'class' , 'clearfix' ) ; 
+	var anchor = $( this ).find( 'a' ).last().clone() ; 
+	anchor.addClass( 'list-group-item' ).append( '&nbsp;' ).append( span ).append( clearfixDiv ) ;
 	$( this ).remove( 'span' ) ;
 	allAnchors.push( anchor ) ; 
       } ) ;

@@ -128,26 +128,23 @@ function bws_params_dynamic_sidebar( $params ) {
   return $params ; 
 } 
 
-// if there' a "Recent Posts" widget, enqueue bws-change-markup.js 
-add_filter( 'widget_posts_args' , 'bws_posts_enqueue_javascript' ) ; 
-function bws_posts_enqueue_javascript( $args ) {
-  wp_enqueue_script( BWS_PLUGIN_SLUG . '-script' , plugins_url( '/' . BWS_PLUGIN_SLUG . '/js/bws-change-markup.js' ) , array( 'jquery' ) ) ;  
+// enqueue javascript to change markup if these widgets are on page
+add_filter( 'widget_posts_args' , 'bws_enqueue_javascript' ) ;  // recent posts
+add_filter( 'widget_meta_poweredby' , 'bws_enqueue_javascript' ) ; 
+add_filter( 'widget_comments_args' , 'bws_enqueue_javascript' ) ;
+
+function bws_enqueue_javascript( $args ) {
+  bws_enqueue_bws_change_markup() ;
   return $args ; 
 }
 
-// if there' a "Meta" widget, enqueue bws-change-markup.js 
-add_filter( 'widget_meta_poweredby' , 'bws_meta_enqueue_javascript' ) ;
-function bws_meta_enqueue_javascript( $args ) {
-  wp_enqueue_script( BWS_PLUGIN_SLUG . '-script' , plugins_url( '/' . BWS_PLUGIN_SLUG . '/js/bws-change-markup.js' ) , array( 'jquery' ) ) ;  
-  return $args ; 
+// enqueue javascript in the customizer, no matter what widgets are present
+add_action( 'customize_register' , 'bws_enqueue_bws_change_markup' ) ; 
+
+function bws_enqueue_bws_change_markup() {
+  wp_enqueue_script( BWS_PLUGIN_SLUG . '-script' , plugins_url( '/' . BWS_PLUGIN_SLUG . '/js/bws-change-markup.js' ) , array( 'jquery' ) ) ;
 }
 
-// if there' a "Comments" widget, enqueue bws-change-markup.js 
-add_filter( 'widget_comments_args' , 'bws_comments_enqueue_javascript' ) ;
-function bws_comments_enqueue_javascript( $args ) {
-  wp_enqueue_script( BWS_PLUGIN_SLUG . '-script' , plugins_url( '/' . BWS_PLUGIN_SLUG . '/js/bws-change-markup.js' ) , array( 'jquery' ) ) ;  
-  return $args ; 
-}
 
 bws_add_search_form_filter_if_option_allows() ;
 
@@ -196,6 +193,14 @@ function bws_add_class_to_submit_button( $html ) {
 function bws_wrap_submit_button_in_div( $html ) {
   $filtered_html = preg_replace( '/(<input type="submit".*?>)/' , '<div class="input-group-btn">$1</div>' , $html ) ;
   return $filtered_html ;
+}
+
+add_filter( 'wp_tag_cloud' , 'bws_filter_tag_cloud' ) ;
+function bws_filter_tag_cloud( $markup ) {
+  $regex = '/(<a[^>]+?>)([^<]+?)(<\/a>)/' ;
+  $replace_with = "$1<span class='label label-primary'>$2</span>$3" ;
+  $markup = preg_replace( $regex , $replace_with , $markup ) ;
+  return $markup ;
 }
 
   

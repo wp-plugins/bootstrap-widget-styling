@@ -3,19 +3,19 @@ Contributors: ryankienstra
 Donate link: http://jdrf.org/get-involved/ways-to-donate/
 Tags: Bootstrap, widgets, mobile, responsive, default widgets
 Requires at least: 3.9
-Tested up to: 3.9.1
-Stable tag: 1.0.0
+Tested up to: 4.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Make widgets mobile. A bigger click area and cleaner look for 7 default widgets.
+Make widgets mobile. A bigger click area and cleaner look for 8 default widgets.
 
 == Description ==
 
-* Gives Bootstrap styles to widgets: "Categories," "Archives," "Pages," "Search," "Recent Posts," "Recent Comments," and "Meta."
+* Gives Bootstrap styles to widgets: "Categories," "Archives," "Pages," "Search," "Recent Posts," "Recent Comments," "Meta," and "Tag Cloud."
 * Fast: must have Bootstrap 3 because it only sends one small file to the browser.
 * Disable plugin for certain widgets, using "Settings" page.
-* Works with all widgets in Bootstrap themes "Openstrap," "evolve," and "Unite." Mostly works on "Ward" (except for "Categories"), "Bootstrap Ultimate" (except for "Pages") "DevDmBootstrap3" (except for "Search"). Doesn't work at all on "The Bootstrap," "Radiant," "Customizr," and "Inkzine."
+* Works with all widgets in Bootstrap themes "evolve," and "Unite." Mostly works on "Ward" (except for "Categories"), "Bootstrap Ultimate" (except for "Pages") "DevDmBootstrap3" (except for "Search"). Doesn't work at all on "The Bootstrap," "Radiant," "Customizr," and "Inkzine."
 * Doesn't work if you have more than one of each kind of widget on a page. For example, two "Categories" widgets.
 * No setup needed, unless you want to disable it for certain widgets.
 
@@ -27,11 +27,11 @@ Make widgets mobile. A bigger click area and cleaner look for 7 default widgets.
 
 == Frequently Asked Questions ==
 
-= Will this change the rest of my page's styles? =
-No, this doesn't output any stylesheets. It only formats widgets so they can use Bootstrap styles.
-
 = What does this require? =
 Twitter Bootstrap 3.
+
+= Will this change the rest of my page's styles? =
+No, this doesn't output any stylesheets. It only formats widgets so they can use Bootstrap styles.
 
 == Screenshots ==
 
@@ -42,10 +42,14 @@ Twitter Bootstrap 3.
  
 == Changelog ==
 
+= 1.0.1 =
+* Tag cloud widget support added. Improved support for the customizer: widgets will be styled as they're added.
+
 = 1.0.0 =
 * First version
 
 == Upgrade Notice ==
-N/A, this is version 1.0.0
 
+= 1.0.1 =
+Supports tag cloud widgets, but old version still works with WordPress 4.0.
 

@@ -3,7 +3,7 @@
 Plugin Name: Bootstrap Widget Styling
 Plugin URI: www.ryankienstra.com/bootstrap-widget-styling
 Description: Make widgets mobile. Bigger click area and better styling. Only one small file sent to the browser. Disable this for selected widgets by clicking "Settings." Must have Bootstrap 3.
-Version: 1.0.0
+Version: 1.0.2
 Author: Ryan Kienstra
 Author URI: www.ryankienstra.com
 License: GPL2
@@ -28,10 +28,17 @@ function bws_activate_with_default_options() {
   update_option( 'bws_plugin_options' , $bws_plugin_options ) ;
 }
 
-add_action( 'plugins_loaded' , 'bws_get_required_files' ) ;
-function bws_get_required_files() {
-  require_once( plugin_dir_path( __FILE__ ) . 'includes/bws-options.php' ) ;
-  require_once( plugin_dir_path( __FILE__ ) . 'includes/bws-widget-filters.php' ) ;
+add_action( 'plugins_loaded' , 'bws_load_textdomain' ) ;
+function bws_load_textdomain() {
+  load_plugin_textdomain( 'bootstrap-widget-styling' , false , basename( dirname( __FILE__ ) ) . '/languages' ) ;
 }
 
-
+add_action( 'plugins_loaded' , 'bws_get_included_files' ) ;
+function bws_get_included_files() {
+  $included_files = array( 'bws-options' , 'bws-widget-filters' , 'class-bws-settings-fields' ,
+    		    	   'class-bws-settings-page' , 'class-bws-filter'
+  ) ; 
+  foreach( $included_files as $file ) {
+    include_once( plugin_dir_path( __FILE__ ) . "includes/{$file}.php" ) ;
+  }
+}

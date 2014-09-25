@@ -6,4 +6,3 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) )
 }
 
 delete_option( 'bws_plugin_options' ) ;
-

@@ -23,7 +23,7 @@
       newListGroupDiv = $( '<div>' ).addClass( 'list-group' ).append( allAnchors )  ;
       $widget.append( newListGroupDiv ) ;
       $widget.find( 'ul:not(.awr-edit-controls)' ).remove() ; // remove the ul that the original li tags were from
-		   /* new */
+		   
       function getSpan( $container ) {
 	var $span = $container.find( 'span' ) ;
 	var child_anchor = $span.find( 'a' ) ;

@@ -12,25 +12,13 @@ class BWS_Filter {
     $this->type_of_filter = $type_of_filter ;
   }
 
-  static function filter_html_categories( $html_to_filter ) {
-    return self::instantiate_and_filter( $html_to_filter , 'categories' ) ;
-  }
- 
-  static function filter_html_archives( $html_to_filter ) {
-    return self::instantiate_and_filter( $html_to_filter , 'archives' ) ;
-  }
-
-  static function filter_html_pages( $html_to_filter ) {
-    return self::instantiate_and_filter( $html_to_filter , 'pages' ) ;
-  }
-
-  static function instantiate_and_filter( $html_to_filter , $type_of_filter ) {
+  protected static function reformat( $html_to_filter , $type_of_filter ) {
     self::$instance = new self( $html_to_filter , $type_of_filter ) ;    
-    self::$instance->filter() ;
+    self::$instance->get_filtered_markup() ;
     return self::$instance->markup ;    
   }
   
-  function filter() {
+  function get_filtered_markup() {
     $this->remove_ul_tags_if_filter_type_is_pages() ;    
     $this->close_ul_if_first_call_of_filter() ;
     $this->replace_parenthesized_number_with_badge_number() ;
@@ -89,5 +77,31 @@ class BWS_Filter {
     if ( 'archives' !== $this->type_of_filter )  {
       $this->markup .= '</div>' ;
     }
+  }
+}
+
+
+class BWS_Menu extends BWS_Filter {
+  static function filter( $markup ) {
+    return parent::reformat( $markup , 'menu' ) ;
+  }
+}
+
+
+class BWS_Categories extends BWS_Filter {
+  static function filter( $markup ) {
+    return parent::reformat( $markup , 'categories' ) ;
+  }
+}
+
+class BWS_Pages extends BWS_Filter {
+  static function filter( $markup ) {
+    return parent::reformat( $markup , 'pages' ) ;
+  }
+}
+
+class BWS_Archives extends BWS_Filter {
+  static function filter( $markup ) {
+    return parent::reformat( $markup , 'archives' ) ;
   }
 }

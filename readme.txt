@@ -4,18 +4,18 @@ Donate link: http://jdrf.org/get-involved/ways-to-donate/
 Tags: Bootstrap, widgets, mobile, responsive, default widgets
 Requires at least: 3.9
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Make widgets mobile. A bigger click area and cleaner look for 8 default widgets.
+Make widgets mobile. A bigger click area and cleaner look for 9 default widgets.
 
 == Description ==
 
-* Gives Bootstrap styles to widgets: "Categories," "Archives," "Pages," "Search," "Recent Posts," "Recent Comments," "Meta," and "Tag Cloud."
+* Gives Bootstrap styles to widgets: "Categories," "Archives," "Pages," "Search," "Recent Posts," "Recent Comments," "Custom Menu," "Meta," and "Tag Cloud."
 * Fast: must have Bootstrap 3 because it only sends one small file to the browser.
 * Disable plugin for certain widgets, using "Settings" page.
-* Works with all widgets in Bootstrap themes "evolve," and "Unite." Mostly works on "Bootstrap Ultimate" (except for "Pages") "DevDmBootstrap3" (except for "Search"). Doesn't work at all on "The Bootstrap," "Radiant," "Customizr," and "Inkzine."
+* Works with all widgets in Bootstrap themes "evolve," and "Unite." Mostly works on "DevDmBootstrap3" (except for "Search"). Doesn't work at all on "The Bootstrap," "Radiant," "Customizr," and "Inkzine."
 * Doesn't work if you have more than one of each kind of widget on a page. For example, two "Categories" widgets.
 * No setup needed, unless you want to disable it for certain widgets.
 
@@ -43,6 +43,9 @@ No, this doesn't output any stylesheets. It only formats widgets so they can use
  
 == Changelog ==
 
+= 1.0.3 =
+* Added "Custom Menu" widget Bootstrap styling. The widget looks better when it has only one level of navigation.
+
 = 1.0.2 =
 * Fixed bug where warning appeared in strict mode.
 * Integration with the plugin "Adapter Widget Rows."
@@ -55,6 +58,9 @@ No, this doesn't output any stylesheets. It only formats widgets so they can use
 * First version
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+"Custom Menu" widget support added. The widget looks better when it has only one level of navigation.
 
 = 1.0.2 =
 Small bug fix.

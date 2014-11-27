@@ -1,8 +1,7 @@
 <?php
 
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) )
-{
-  exit() ;
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit();
 }
 
-delete_option( 'bws_plugin_options' ) ;
+delete_option( 'bws_plugin_options' );
